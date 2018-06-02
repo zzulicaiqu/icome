@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zzuli.cloud.mapper.StudentMapper" >
+  <resultMap id="BaseResultMap" type="cn.zzuli.cloud.model.Student" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sname" property="sname" jdbcType="VARCHAR" />
+    <result column="snumber" property="snumber" jdbcType="VARCHAR" />
+    <result column="sage" property="sage" jdbcType="INTEGER" />
+    <result column="ssex" property="ssex" jdbcType="VARCHAR" />
+    <result column="classid" property="classid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sname, snumber, sage, ssex, classid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from student
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from student
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.zzuli.cloud.model.Student" >
+    insert into student (id, sname, snumber, 
+      sage, ssex, classid
+      )
+    values (#{id,jdbcType=INTEGER}, #{sname,jdbcType=VARCHAR}, #{snumber,jdbcType=VARCHAR}, 
+      #{sage,jdbcType=INTEGER}, #{ssex,jdbcType=VARCHAR}, #{classid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.zzuli.cloud.model.Student" >
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sname != null" >
+        sname,
+      </if>
+      <if test="snumber != null" >
+        snumber,
+      </if>
+      <if test="sage != null" >
+        sage,
+      </if>
+      <if test="ssex != null" >
+        ssex,
+      </if>
+      <if test="classid != null" >
+        classid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sname != null" >
+        #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="snumber != null" >
+        #{snumber,jdbcType=VARCHAR},
+      </if>
+      <if test="sage != null" >
+        #{sage,jdbcType=INTEGER},
+      </if>
+      <if test="ssex != null" >
+        #{ssex,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null" >
+        #{classid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.zzuli.cloud.model.Student" >
+    update student
+    <set >
+      <if test="sname != null" >
+        sname = #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="snumber != null" >
+        snumber = #{snumber,jdbcType=VARCHAR},
+      </if>
+      <if test="sage != null" >
+        sage = #{sage,jdbcType=INTEGER},
+      </if>
+      <if test="ssex != null" >
+        ssex = #{ssex,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null" >
+        classid = #{classid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.zzuli.cloud.model.Student" >
+    update student
+    set sname = #{sname,jdbcType=VARCHAR},
+      snumber = #{snumber,jdbcType=VARCHAR},
+      sage = #{sage,jdbcType=INTEGER},
+      ssex = #{ssex,jdbcType=VARCHAR},
+      classid = #{classid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
