@@ -1,6 +1,6 @@
 spring:
   application:
-    name: icome-gateway-zuul
+    name: microservice-server-zuul
   profiles:
     active: 8760
 

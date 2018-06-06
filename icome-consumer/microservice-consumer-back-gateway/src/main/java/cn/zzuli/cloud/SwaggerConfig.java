@@ -24,7 +24,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("enn.icome.kernel"))
+                .apis(RequestHandlerSelectors.basePackage("cn.zzuli.cloud"))
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -32,8 +32,8 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("Spring Boot中使用Swagger2构建RESTful APIs")
-                .description("enn.icome.kernel")
-                .termsOfServiceUrl("http://enn.icome.kernel/")
+                .description("cn.zzuli.cloud")
+                .termsOfServiceUrl("http://cn.zzuli.cloud/")
                 .version("1.0")
                 .build();
     }

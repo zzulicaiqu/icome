@@ -1,3 +1,6 @@
+spring:
+  application:
+    name: microservice-erueka-server
 security:
   basic:
     enabled: true   #添加eureka的登录认证

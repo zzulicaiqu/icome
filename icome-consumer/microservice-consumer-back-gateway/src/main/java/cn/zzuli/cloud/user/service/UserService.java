@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient("microservice-consumer-service")
+@FeignClient("microservice-consumer-controller")
 public interface UserService {
 
 	@RequestMapping(value = "/find/{id}",method = RequestMethod.POST)
-	Object getById(@PathVariable Integer id);
+	Object getById(@PathVariable("id") Integer id);
 }
