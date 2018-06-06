@@ -10,6 +10,8 @@
 	
 	<modules>
 		<module>microservice-erueka-server</module>
+		<module>microservice-server-zuul</module>
+		
 	</modules>
 	
 	<parent>
