@@ -1,0 +1,14 @@
+spring:
+  application:      #应用的名称
+    name: microservice-consumer-back-gateway
+server:                #设置服务的端口号
+  port: 7207
+eureka:               #erueka 注册中心的健康检查、erueka的路径已经登录的安全检查（security）
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://user:password123@localhost:8761/eureka
+  instance:
+    prefer-ip-address: true   #显示status的ip
+    status-page-url: http://localhost:${server.port}/swagger-ui.html # ${server.port}为该服务的端口号  / 开启swagger2

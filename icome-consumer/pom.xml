@@ -13,7 +13,8 @@
 		<module>microservice-consumer-domain</module>
 		<module>microservice-consumer-service</module>
 		<module>microservice-consumer-controller</module>
-		
+		<module>microservice-consumer-back-gateway</module>
+		<module>microservice-consumer-front-gateway</module>
 	</modules>
 	
 	
